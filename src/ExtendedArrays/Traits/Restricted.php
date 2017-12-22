@@ -3,10 +3,10 @@
 namespace ExtendedArrays\Traits;
 
 /**
- * This trait can only be applied to AssociativeArray
+ * This trait can only be applied to AssociativeArray.
  */
-trait Restricted {
-
+trait Restricted
+{
     /**
      * Override the constructor for AssociativeARray
      * to enforce the list of restricted keys.
@@ -29,8 +29,7 @@ trait Restricted {
         }
 
         $keys = array_keys($args);
-        for($i=0;$i<sizeof($args);$i++)
-        {
+        for ($i = 0; $i < count($args); $i++) {
             if (in_array($keys[$i], $this->fillable)) {
                 $this[$keys[$i]] = $args[$keys[$i]];
             } else {
@@ -47,7 +46,8 @@ trait Restricted {
      * @param  mixed $value
      * @throws \Exception
      */
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value)
+    {
         if (is_null($offset)) {
             throw new \Exception('Must supply key to modify an associative array.');
         } else {
@@ -62,12 +62,13 @@ trait Restricted {
     /**
      * Override the offsetExists function to enforce
      * the list of restricted keys.
-     * 
+     *
      * @param  mixed $offset
      *
      * @return bool
      */
-    public function offsetExists($offset) {
+    public function offsetExists($offset)
+    {
         return $this->_isFillable($offset);
     }
 
@@ -76,9 +77,10 @@ trait Restricted {
      * as restricted traits enforce array keys.
      *
      * @param  mixed $offset
-     * @throws \Exception 
+     * @throws \Exception
      */
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset)
+    {
         throw new \Exception('Unset not supported in a class using the Restricted trait.');
     }
 
@@ -88,7 +90,8 @@ trait Restricted {
      *
      * @param  mixed $offset
      */
-    public function offsetGet($offset) {
+    public function offsetGet($offset)
+    {
         return isset($this->_args[$offset]) ? $this->_args[$offset] : null;
     }
 
@@ -101,7 +104,8 @@ trait Restricted {
      * @return mixed
      * @throws \Exception
      */
-    public function __get($key) {
+    public function __get($key)
+    {
         if ($this->_isFillable($key)) {
             return $this->_args[$key];
         } else {
@@ -117,7 +121,8 @@ trait Restricted {
      * @param mixed $val
      * @throws \Exception
      */
-    public function __set($key, $val) {
+    public function __set($key, $val)
+    {
         if ($this->_isFillable($key)) {
             $this->_args[$key] = $val;
         } else {
@@ -126,16 +131,17 @@ trait Restricted {
     }
 
     /**
-     * Override the undefined function call back 
+     * Override the undefined function call back
      * and use it to set and get array values.
      *
      * @param  string $name
      * @param  array  $arguments [description]
-     * 
+     *
      * @return mixed
      * @throws \Exception
      */
-    public function __call($name, $arguments) {
+    public function __call($name, $arguments)
+    {
         $ret = $this;
         if ($this->_isFillable($name)) {
             if (count($arguments) < 1) {
@@ -154,7 +160,7 @@ trait Restricted {
      * Check if a key is fillable.
      *
      * @param  string  $key
-     * 
+     *
      * @return bool
      */
     private function _isFillable($key)
