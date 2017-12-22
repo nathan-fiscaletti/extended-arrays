@@ -2,9 +2,10 @@
 
 namespace ExtendedArrays;
 
-use ExtendedArrays\IndexedArray as IndexedArr;
 use ExtendedArrays\Traits\Sequential;
+use ExtendedArrays\IndexedArray as IndexedArr;
 
-class SequentialIndexedArray extends IndexedArr {
+class SequentialIndexedArray extends IndexedArr
+{
     use Sequential;
 }
