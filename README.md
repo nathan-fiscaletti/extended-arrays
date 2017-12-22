@@ -8,6 +8,7 @@
 [![Total Downloads](https://poser.pugx.org/nafisc/extended-arrays/downloads?format=flat)](https://packagist.org/packages/nafisc/extended-arrays)
 [![Latest Unstable Version](https://poser.pugx.org/nafisc/extended-arrays/v/unstable?format=flat)](https://packagist.org/packages/nafisc/extended-arrays)
 [![License](https://poser.pugx.org/nafisc/extended-arrays/license?format=flat)](https://packagist.org/packages/nafisc/extended-arrays)
+![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)
 
 ### Features
 * Enforced Associaitive Array Keys
