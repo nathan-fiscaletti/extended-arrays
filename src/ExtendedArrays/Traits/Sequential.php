@@ -5,7 +5,8 @@ namespace ExtendedArrays\Traits;
 /**
  * The sequential trait can only be applied to IndexedArray.
  */
-trait Sequential {
+trait Sequential
+{
     /**
      * Override the constructor of the IndexedArray to
      * enforce a sequential array.
@@ -24,7 +25,7 @@ trait Sequential {
             if (! is_int($key) || $key != $lastKey + 1) {
                 throw new \Exception('All keys used to construct an IndexedArray that inherits the \'Sequential\' trait must be integral and sequential.');
             }
-            $lastKey+=1;
+            $lastKey += 1;
         }
         $this->_args = $args;
     }
@@ -36,15 +37,16 @@ trait Sequential {
      * @param  mixed $offset
      * @param  mixed $value
      */
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value)
+    {
         if (is_null($offset)) {
-            $this->_args[sizeof($this->_args)] = $value;
+            $this->_args[count($this->_args)] = $value;
         } else {
             if (is_int($offset)) {
-                if ($offset <= sizeof($this->_args)) {
+                if ($offset <= count($this->_args)) {
                     $this->_args[$offset] = $value;
                 } else {
-                    throw new \Exception('Cannot modify offset \''.$offset.'\' of IndexedArray. Outside of sequential bounds.');    
+                    throw new \Exception('Cannot modify offset \''.$offset.'\' of IndexedArray. Outside of sequential bounds.');
                 }
             } else {
                 throw new \Exception('Cannot modify offset \''.$offset.'\' of IndexedArray.');
