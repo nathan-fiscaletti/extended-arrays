@@ -7,7 +7,6 @@ namespace ExtendedArrays\Traits;
  */
 trait BaseArray
 {
-
     /**
      * The wrapped array object for storing data.
      *
