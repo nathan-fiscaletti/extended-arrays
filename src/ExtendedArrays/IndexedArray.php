@@ -172,6 +172,7 @@ class IndexedArray implements \ArrayAccess
             if (substr($key, 0, 1) == '_') {
                 try {
                     intval(substr($key, 1, strlen($key) - 1));
+
                     return true;
                 } catch (\Exception $e) {
                     return false;

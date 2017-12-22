@@ -29,7 +29,7 @@ trait Restricted
         }
 
         $keys = array_keys($args);
-        for($i = 0; $i < count($args); $i++) {
+        for ($i = 0; $i < count($args); $i++) {
             if (in_array($keys[$i], $this->fillable)) {
                 $this[$keys[$i]] = $args[$keys[$i]];
             } else {
@@ -131,7 +131,7 @@ trait Restricted
     }
 
     /**
-     * Override the undefined function call back 
+     * Override the undefined function call back
      * and use it to set and get array values.
      *
      * @param  string $name
