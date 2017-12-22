@@ -1,0 +1,25 @@
+{
+    "name": "nathanf/extended-arrays",
+    "description": "An library for more powerful array extension in PHP.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nathan Fiscaletti",
+            "email": "nathhan.fiscaletti@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ExtendedArrays\\": "src/ExtendedArrays"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ExtendedArrays\\Tests\\": "tests/"
+        }
+    }
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    }
+}
