@@ -7,11 +7,12 @@ use ExtendedArrays\Traits\BaseArray;
 /**
  * An Indexed array.
  */
-class IndexedArray implements \ArrayAccess {
+class IndexedArray implements \ArrayAccess
+{
     use BaseArray;
 
     /**
-     * Override the constructor to enforce 
+     * Override the constructor to enforce
      * integral indexed arrays only.
      *
      * @param array $args
@@ -36,9 +37,10 @@ class IndexedArray implements \ArrayAccess {
      *
      * @throws \Exception
      */
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value)
+    {
         if (is_null($offset)) {
-            $this->_args[sizeof($this->_args)] = $value;
+            $this->_args[count($this->_args)] = $value;
         } else {
             if (is_int($offset)) {
                 $this->_args[$offset] = $value;
@@ -49,7 +51,7 @@ class IndexedArray implements \ArrayAccess {
     }
 
     /**
-     * Override the offsetGet function to throw 
+     * Override the offsetGet function to throw
      * an undefined offset error when a key is
      * not found.
      *
@@ -58,9 +60,10 @@ class IndexedArray implements \ArrayAccess {
      * @return mixed
      * @throws \Exception
      */
-    public function offsetGet($offset) {
+    public function offsetGet($offset)
+    {
         if (isset($this->_args[$offset])) {
-            return $this->_args[$offset]; 
+            return $this->_args[$offset];
         } else {
             throw new \Exception('Undefined offset \''.$offset.'\'.');
         }
@@ -71,19 +74,20 @@ class IndexedArray implements \ArrayAccess {
      * to check for prefixed integral key access.
      *
      * @param  string $key
-     * 
+     *
      * @return mixed
      * @throws \Exception
      */
-    public function __get($key) {
+    public function __get($key)
+    {
         if (
             $this->isPrefixedKey($key)
         ) {
-            if (array_key_exists ($this->keyForPrefixedKey($key), $this->_args)) {
-                    $ret = $this->_args[$this->keyForPrefixedKey($key)];
-                } else {
-                    throw new \Exception('Undefined offset \''.$this->keyForPrefixedKey($key).'\'.');
-                }
+            if (array_key_exists($this->keyForPrefixedKey($key), $this->_args)) {
+                $ret = $this->_args[$this->keyForPrefixedKey($key)];
+            } else {
+                throw new \Exception('Undefined offset \''.$this->keyForPrefixedKey($key).'\'.');
+            }
         } else {
             throw new \Exception('Undefined property \''.$key.'\'.');
         }
@@ -100,7 +104,8 @@ class IndexedArray implements \ArrayAccess {
      *
      * @throws \Exception
      */
-    public function __set($key, $val) {
+    public function __set($key, $val)
+    {
         if (
             $this->isPrefixedKey($key)
         ) {
@@ -120,13 +125,14 @@ class IndexedArray implements \ArrayAccess {
      * @return mixed
      * @throws \Exception
      */
-    public function __call($name, $arguments) {
+    public function __call($name, $arguments)
+    {
         $ret = $this;
         if (
             $this->isPrefixedKey($name)
         ) {
             if (count($arguments) < 1) {
-                if (array_key_exists ($this->keyForPrefixedKey($name), $this->_args)) {
+                if (array_key_exists($this->keyForPrefixedKey($name), $this->_args)) {
                     $ret = $this->_args[$this->keyForPrefixedKey($name)];
                 } else {
                     throw new \Exception('Undefined offset \''.$this->keyForPrefixedKey($name).'\'.');
@@ -158,14 +164,15 @@ class IndexedArray implements \ArrayAccess {
      * to be a prefixed integral array key.
      *
      * @param  string  $key
-     * @return boolean
+     * @return bool
      */
     private function isPrefixedKey($key)
     {
         if (strlen($key) > 1) {
             if (substr($key, 0, 1) == '_') {
                 try {
-                    intval(substr($key, 1, strlen($key) -1));
+                    intval(substr($key, 1, strlen($key) - 1));
+
                     return true;
                 } catch (\Exception $e) {
                     return false;
