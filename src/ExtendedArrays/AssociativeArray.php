@@ -7,7 +7,8 @@ use ExtendedArrays\Traits\BaseArray;
 /**
  * An associative array.
  */
-class AssociativeArray implements \ArrayAccess {
+class AssociativeArray implements \ArrayAccess
+{
     use BaseArray;
 
     /**
@@ -30,7 +31,8 @@ class AssociativeArray implements \ArrayAccess {
      * @return mixed
      * @throws \Exception
      */
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value)
+    {
         if (is_null($offset)) {
             throw new \Exception('Must supply key to modify arguments in an AssociativeArray.');
         } else {
@@ -47,9 +49,10 @@ class AssociativeArray implements \ArrayAccess {
      * @return mixed
      * @throws \Exception
      */
-    public function __get($key) {
+    public function __get($key)
+    {
         if (array_key_exists($key, $this->_args)) {
-            return $this->_args[$key];    
+            return $this->_args[$key];
         } else {
             throw new \Exception('Undefined property \''.$key.'\'.');
         }
@@ -62,7 +65,8 @@ class AssociativeArray implements \ArrayAccess {
      * @param string $key
      * @param mixed $val
      */
-    public function __set($key, $val) {
+    public function __set($key, $val)
+    {
         $this->_args[$key] = $val;
     }
 
@@ -76,9 +80,10 @@ class AssociativeArray implements \ArrayAccess {
      * @return mixed
      * @throws \Exception
      */
-    public function __call($name, $arguments) {
+    public function __call($name, $arguments)
+    {
         $ret = $this;
-            
+
         if (count($arguments) < 1) {
             if (array_key_exists($name, $this->_args)) {
                 $ret = $this->_args[$name];
