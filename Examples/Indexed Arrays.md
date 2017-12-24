@@ -31,7 +31,7 @@ $arr->name = 'nathan';
 $arr->name('nathan');
 
 // This would throw an exception since 
-// it's base array house non-integral 
+// it's base array housed non-integral 
 // keys in it's KeyList.
 $arr = new \ExtendedArrays\IndexedArray ([
     0 => 'nathan',
@@ -56,6 +56,7 @@ $arr = new \ExtendedArrays\SequentialIndexedArray ([
     1 => 'is',
     2 => 'schwifty'
 ]);
+$arr->_1 = 'cool';
 $arr->_3 = 'nice';
 
 // These would throw an exception
