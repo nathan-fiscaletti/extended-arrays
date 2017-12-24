@@ -29,7 +29,11 @@ One of the features of Extended Arrays is to enforce the keys that an array can 
 
 ##### Example:
 ```php
-class MyArray extends \ExtendedArrays\AssociativeArray {
+
+// First we need to define our class that extends
+// AssociativeArray and set a `$fillable` filter 
+// in it's class properties.
+final class MyArray extends \ExtendedArrays\AssociativeArray {
     protected $fillable = [
         'name',
         'age'
@@ -42,15 +46,22 @@ $arr = new MyArray([
 ]);
 $arr->age = 22;
 
+// These would throw an exception
+// since 'height' is not in the
+// filter of fillable keys.
+$arr['height'] = 72;
+$arr->height = 72;
+$arr->height(72);
+
 // This would throw an exception
+// since 'height' is not in the 
+// filter of fillable keys.
 $arr = new MyArr([
     'name' => 'nathan',
     'height' => 72
 ]);
-
-// This would throw an exception
-$arr = new MyArr([
-    'name' => 'nathan'
-]);
-$arr->height = 72;
 ```
+
+#### Limitations
+
+1. When adding a key to an Associative Array, you cannot use the `$array[] =` method. A key **must** be provided for the (Key, Value) pair.
