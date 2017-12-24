@@ -1,7 +1,7 @@
 ## Index:
-* [Managing Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/examples/Managing%20Arrays.md)
+* [Managing Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/Examples/Managing%20Arrays.md)
 * Associative Arrays
-* [Indexed Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/examples/Indexed%20Arrays.md)
+* [Indexed Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/Examples/Indexed%20Arrays.md)
 
 ----
 ### Associative Arrays
