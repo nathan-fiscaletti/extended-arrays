@@ -1,7 +1,7 @@
 ## Index:
 * Managing Arrays
-* [Associative Arrays](https://github.com/nathan-fiscaletti/parameterparser/blob/master/examples/Associative%20Arrays.md)
-* [Indexed Arrays](https://github.com/nathan-fiscaletti/parameterparser/blob/master/examples/Indexed%20Arrays.md)
+* [Associative Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/examples/Associative%20Arrays.md)
+* [Indexed Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/examples/Indexed%20Arrays.md)
 
 ----
 ### Managing Arrays
