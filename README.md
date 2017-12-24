@@ -14,6 +14,7 @@
 [Click here for the Documentation](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/Examples/Managing%20Arrays.md)
 
 ### Features
-* Enforced Associaitive Array Keys
-* Enforced Sequential Indexed Array Keys
-* Masked Array Keys
+* Enforced keys
+* Enforced integral keys
+* Enforced sequential integral keys
+* Array key masking
