@@ -16,7 +16,7 @@ Indexed arrays require their base array to only house integral indexes.
 ```php
 
 // This would work
-$arr = new \ExtendedArrays\ExtendedArray ([
+$arr = new \ExtendedArrays\IndexedArray ([
     0 => 'nathan',
     1 => 'is',
     2 => 'schwifty'
@@ -31,7 +31,7 @@ $arr->name('nathan');
 // This would throw an exception since 
 // it's base array house non-integral 
 // keys in it's KeyList.
-$arr = new \ExtendedArrays\ExtendedArray ([
+$arr = new \ExtendedArrays\IndexedArray ([
     0 => 'nathan',
     1 => 'is',
     2 => 'schwifty',
@@ -42,14 +42,14 @@ $arr = new \ExtendedArrays\ExtendedArray ([
 
 #### Enforcing Sequential Array keys
 
-One of the features of Extended Arrays is to enforce sequential integers as the keys that an array can house. This means that during construction of the array and when editing it, you can only modify or set the keys that are in seqential order. 
+One of the features of Extended Arrays is to enforce sequential integers as the keys that an array can house when using Indexed Arrays. This means that during construction of the array and when editing it, you can only modify or set the keys that are in seqential order. 
 
 *Only indexed arrays can enforce sequence.*
 
 ##### Example
 ```php
 // This would work
-$arr = new \ExtendedArrays\SequentialExtendedArray ([
+$arr = new \ExtendedArrays\SequentialIndexedArray ([
     0 => 'nathan',
     1 => 'is',
     2 => 'schwifty'
@@ -72,8 +72,8 @@ $arr->name('nathan');
 
 // This would throw an exception
 // since the base array for the
-// extended array is not Sequential.
-$arr = new \ExtendedArrays\SequentialExtendedArray ([
+// indexed array is not Sequential.
+$arr = new \ExtendedArrays\SequentialIndexedArray ([
     0 => 'nathan',
     4 => 'is',
     5 => 'schwifty'
