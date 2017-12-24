@@ -8,9 +8,9 @@
 
 Associaitive Arrays are an abstract data type composed of a collection of (key, value) pairs, such that each possible key appears at most once in the collection. With associaitive arrays, you can use any object type as the key for the (key, value) pair. 
 
-### Creating an Associative Array with Extended Arrays
+#### Creating an Associative Array with Extended Arrays
 
-```
+```php
 // Create the associative array
 $array = new \ExtendedArrays\AssociativeArray (
     [
@@ -21,13 +21,13 @@ $array = new \ExtendedArrays\AssociativeArray (
 );
 ```
 
-### Enforcing Associative Array keys
+#### Enforcing Associative Array keys
 
 One of the features of Extended Arrays is to enforce the keys that an array can access. This means that during construction of the array and when editing it, you can only modify or set the keys defined in the arrays `$fillable` property.
 
 *You can only use `$fillable` on associative arrays.*
 
-#### Example:
+##### Example:
 ```php
 class MyArray extends \ExtendedArrays\AssociativeArray {
     protected $fillable = [

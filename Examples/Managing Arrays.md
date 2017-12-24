@@ -31,11 +31,11 @@ print_r($array->_asStdArray());
         [0] => 5
     )
 
-### Constructing an Extended Arrays array
+#### Constructing an Extended Arrays array
 
 Each array implementation in Extended Arrays is handled as a PHP object. These objects are constructed using a standard PHP array. 
 
-#### Example:
+##### Example:
 ```php
 $array = new \ExtendedArrays\AssociativeArray (
     [
@@ -46,11 +46,11 @@ $array = new \ExtendedArrays\AssociativeArray (
 
 However, there are other ways you can construct them that allows you to have more control over how your array is used. These are documented in [Associative Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/Examples/Associative%20Arrays.md) and [Indexed Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/Examples/Indexed%20Arrays.md) respectively. 
 
-### Accessing Array Elements
+#### Accessing Array Elements
 
 There are three ways in which you can access array elements of Extended Array arrays.
 
-#### 1. ArrayAccess
+##### 1. ArrayAccess
 ```php
 // Set
 $array['key'] = 'value';
@@ -59,7 +59,7 @@ $array['key'] = 'value';
 $value = $array['key'];
 ``` 
 
-#### 2. Property Access
+##### 2. Property Access
 ```php
 // Set
 $array->key = 'value';
@@ -77,7 +77,7 @@ $idx->_0 = 'value';
 $value = $idx->_0;
 ``` 
 
-#### 3. Function Calls
+##### 3. Function Calls
 ```php
 // Set
 $array->key('value');
@@ -95,7 +95,7 @@ $idx->_0('value');
 $value = $idx->_0();
 ``` 
 
-### Controlling `_asStdArray()`
+#### Controlling `_asStdArray()`
 
 Each Extended Arrays array that uses the [BaseArray](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/src/ExtendedArrays/Traits/BaseArray.php) trait implements the `_asStdArray()` function. This function will return a standard PHP array representing the Extended Arrays array.
 
@@ -103,7 +103,7 @@ You can control which values are returned in this by setting the `$hidden` prope
 
 There are two ways to do this:
 
-#### 1. Inline Example
+##### 1. Inline Example
 ```php
 // Create a new array using a custom class
 // that extends AssociaitveArray and override
@@ -139,13 +139,13 @@ $arr = new class extends \ExtendedArrays\AssociativeArray {
 print_r($arr->_asStdArray());
 ```
 
-#### Output: 
+##### Output: 
     Array
     (
         [age] => 22
     )
 
-#### 2. Extending Extended Arrays Example
+##### 2. Extending Extended Arrays Example
 ```php
 // Create a new class that extends AssociativeArray
 // and override it's `$hidden` property.
@@ -168,7 +168,7 @@ $arr = new NameHiddenArray([
 print_r($arr->_asStdArray());
 ```
 
-#### Output: 
+##### Output: 
     Array
     (
         [age] => 22
