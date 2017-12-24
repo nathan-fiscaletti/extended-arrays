@@ -1,4 +1,6 @@
-## Index:
+## Extended Arrays Documentation
+
+#### Index:
 * Managing Arrays
 * [Associative Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/Examples/Associative%20Arrays.md)
 * [Indexed Arrays](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/Examples/Indexed%20Arrays.md)
