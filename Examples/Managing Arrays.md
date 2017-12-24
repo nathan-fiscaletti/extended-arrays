@@ -1,11 +1,14 @@
+## Index:
+* Managing Arrays
+* [Associative Arrays](https://github.com/nathan-fiscaletti/parameterparser/blob/master/examples/Associative%20Arrays.md)
+* [Indexed Arrays](https://github.com/nathan-fiscaletti/parameterparser/blob/master/examples/Indexed%20Arrays.md)
+
 ----
-
-
 ### Managing Arrays
 
 #### The BaseArray trait
 
-Each array in Extended Arrays uses the [BaseArray](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/src/ExtendedArrays/Traits/BaseArray.php) trait. This trait implements some of the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php) functions that are standard across all of Extended Arrays array implementations, and leaves the rest up to the higher level implementation. This trait also adds the `_asStdArray()` function that will convert any Extended Arrays array back to a standard PHP array.
+Each array in Extended Arrays uses the [BaseArray](https://github.com/nathan-fiscaletti/extended-arrays/blob/master/src/ExtendedArrays/Traits/BaseArray.php) trait. This trait should not be used externally. It is used by Extended Arrays internal classes only. This trait implements some of the [ArrayAccess](http://php.net/manual/en/class.arrayaccess.php) functions that are standard across all of Extended Arrays array implementations, and leaves the rest up to the higher level implementation. This trait also adds the `_asStdArray()` function that will convert any Extended Arrays array back to a standard PHP array.
 
 ##### Example:
 ```php
@@ -142,7 +145,7 @@ print_r($arr->_asStdArray());
         [age] => 22
     )
 
-#### 2. Extendeding Extended Arrays Example
+#### 2. Extending Extended Arrays Example
 ```php
 // Create a new class that extends AssociativeArray
 // and override it's `$hidden` property.
