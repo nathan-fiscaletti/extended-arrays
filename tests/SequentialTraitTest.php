@@ -7,7 +7,7 @@ use ExtendedArrays\Traits\Sequential;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \ExtendedARrays\Traits\Sequential
+ * @covers \ExtendedArrays\Traits\Sequential
  */
 final class SequentialTraitTest extends TestCase {
     public function testInheritsIndexedArray() {

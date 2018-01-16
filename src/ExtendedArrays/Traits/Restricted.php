@@ -31,7 +31,7 @@ trait Restricted
         $keys = array_keys($args);
         for ($i = 0; $i < count($args); $i++) {
             if (in_array($keys[$i], $this->fillable)) {
-                $this[$keys[$i]] = $args[$keys[$i]];
+                $this->_args[$keys[$i]] = $args[$keys[$i]];
             } else {
                 throw new \Exception('Cannot initialize element \''.$keys[$i].'\' on an AssociativeArray that uses the Restricted trait. \''.$keys[$i].'\' is not fillable.');
             }

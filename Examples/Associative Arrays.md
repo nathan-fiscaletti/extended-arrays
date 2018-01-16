@@ -64,6 +64,30 @@ $arr = new MyArr([
 ]);
 ```
 
+#### ReadOnly Associative Arrays
+
+You can create a ReadOnly AssociativeArray, either of the Restricted model or normal. When you create a ReadOnly array, only the values set during the constrsuction of the object will be available. You will not be able to add or modify values or keys.
+
+```php
+$array = new \ExtendedArrays\ReadOnlyAssociativeArray (
+    [
+        'name' => 'nathan',
+        'age' => 22
+        'hair' => 'brown'
+    ]
+);
+
+// This will work
+$age = $array->age;
+$name = $array['name'];
+$hair = $array->hair();
+
+// These will throw exceptions
+$array->age = 10;
+$array['name'] = 'test';
+$array->hair('yellow');
+```
+
 #### Limitations
 
-1. When adding a key to an Associative Array, you cannot use the `$array[] =` method. A key **must** be provided for the (Key, Value) pair.
+1. When adding a key to an Associative Array, you cannot use the `$array[] = x` method as keys will not be assumed. A key **must** be provided for the (Key, Value) pair. `$array['mykey'] = x`.
