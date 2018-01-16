@@ -7,7 +7,7 @@ use ExtendedArrays\AssociativeArray as AssocArr;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \ExtendedARrays\AssociaitiveArray
+ * @covers \ExtendedArrays\AssociaitiveArray
  */
 final class AssociativeArrayTest extends TestCase {
     public function testCanBeCreatedFromValidArray() {

@@ -7,7 +7,7 @@ use ExtendedArrays\RestrictedAssociativeArray as RestrictedAssocArr;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \ExtendedARrays\RestrictedAssociaitiveArray
+ * @covers \ExtendedArrays\RestrictedAssociaitiveArray
  */
 final class RestrictedAssociativeArrayTest extends TestCase {
     public function testRestrictedAssocArrayRestrictsConstructionWithNonFillableOffset() {

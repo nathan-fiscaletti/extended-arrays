@@ -7,7 +7,7 @@ use ExtendedArrays\IndexedArray as IdxArr;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \ExtendedARrays\IndexedArray
+ * @covers \ExtendedArrays\IndexedArray
  */
 final class IndexedArrayTest extends TestCase {
     public function testConstructionMustBeIntegral() {
