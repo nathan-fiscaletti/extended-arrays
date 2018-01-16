@@ -7,23 +7,23 @@ namespace ExtendedArrays\Traits;
  */
 trait ReadOnly
 {
-	/**
-	 * Construct the object and verify that this trait is being
-	 * applied to an instance of AssociativeArray.
-	 * @param array $args
-	 *
-	 * @throws \Exception
-	 */
-	public function __construct(array $args = [])
-	{
-		if (! is_subclass_of($this, '\ExtendedArrays\AssociativeArray')) {
+    /**
+     * Construct the object and verify that this trait is being
+     * applied to an instance of AssociativeArray.
+     * @param array $args
+     *
+     * @throws \Exception
+     */
+    public function __construct(array $args = [])
+    {
+        if (! is_subclass_of($this, '\ExtendedArrays\AssociativeArray')) {
             throw new \Exception('Cannot apply \'ReadOnly\' trait to a class that does not inherit \\ExtendedArrays\\AssociativeArray');
         }
 
         parent::__construct($args);
-	}
+    }
 
-	/**
+    /**
      * Unset an offset in the array.
      *
      * @param  mixed $offset
