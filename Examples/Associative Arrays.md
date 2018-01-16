@@ -35,7 +35,7 @@ One of the features of Extended Arrays is to enforce the keys that an array can 
 // First we need to define our class that extends
 // AssociativeArray and set a `$fillable` filter 
 // in it's class properties.
-final class MyArray extends \ExtendedArrays\AssociativeArray {
+final class MyArray extends \ExtendedArrays\RestrictedAssociativeArray {
     protected $fillable = [
         'name',
         'age'
