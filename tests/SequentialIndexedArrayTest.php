@@ -7,7 +7,7 @@ use ExtendedArrays\SequentialIndexedArray as SeqIdxArr;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \ExtendedARrays\SequentialIndexedArray
+ * @covers \ExtendedArrays\SequentialIndexedArray
  */
 final class SequentialIndexedArrayTest extends TestCase {
     public function testConstructionMustUseSequentialArray() {
