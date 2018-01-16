@@ -8,7 +8,7 @@ use ExtendedArrays\AssociativeArray as AssocArr;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \ExtendedARrays\Traits\Restricted
+ * @covers \ExtendedArrays\Traits\Restricted
  */
 final class RestrictedTraitTest extends TestCase {
     public function testRestrictedTraitAppliedOnlyToAssociativeArrayClass() {
