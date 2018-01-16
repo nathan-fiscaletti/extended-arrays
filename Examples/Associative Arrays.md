@@ -27,7 +27,7 @@ $array = new \ExtendedArrays\AssociativeArray (
 
 One of the features of Extended Arrays is to enforce the keys that an array can access. This means that during construction of the array and when editing it, you can only modify or set the keys defined in the arrays `$fillable` property.
 
-*You can only use `$fillable` on associative arrays.*
+*You can only use `$fillable` on RestrictedAssociativeArray implementations.*
 
 ##### Example:
 ```php
