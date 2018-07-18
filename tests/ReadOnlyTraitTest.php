@@ -4,6 +4,7 @@ namespace ExtendedArrays\Tests;
 
 use ExtendedArrays\Traits\ReadOnly;
 use ExtendedArrays\ReadOnlyAssociativeArray;
+use ExtendedArrays\AssociativeArray as AssocArr;
 
 use PHPUnit\Framework\TestCase;
 
@@ -97,5 +98,16 @@ final class ReadOnlyTraitTest extends TestCase {
 			$readOnly->name(),
 			'nathan'
 		);
+	}
+
+	public function testCallArrayReturnedAsAssociativeArray()
+	{
+		$readOnly = new ReadOnlyAssociativeArray([
+			'test' => [
+				'test'
+			]
+		]);
+
+		$this->assertInstanceOf(AssocArr::class, $readOnly->test());
 	}
 }
