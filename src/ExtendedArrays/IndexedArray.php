@@ -63,7 +63,11 @@ class IndexedArray implements \ArrayAccess
     public function offsetGet($offset)
     {
         if (isset($this->_args[$offset])) {
-            return $this->_args[$offset];
+            if (is_array($this->_args[$offset])) {
+                return new AssociativeArray($this->_args[$offset]);
+            } else {
+                return $this->_args[$offset];
+            }
         } else {
             throw new \Exception('Undefined offset \''.$offset.'\'.');
         }
@@ -84,7 +88,12 @@ class IndexedArray implements \ArrayAccess
             $this->isPrefixedKey($key)
         ) {
             if (array_key_exists($this->keyForPrefixedKey($key), $this->_args)) {
-                $ret = $this->_args[$this->keyForPrefixedKey($key)];
+                $key = $this->keyForPrefixedKey($key);
+                if (is_array($this->_args[$key])) {
+                    $ret = new AssociativeArray($this->_args[$key]);
+                } else {
+                    $ret = $this->_args[$key];
+                }
             } else {
                 throw new \Exception('Undefined offset \''.$this->keyForPrefixedKey($key).'\'.');
             }
@@ -133,7 +142,12 @@ class IndexedArray implements \ArrayAccess
         ) {
             if (count($arguments) < 1) {
                 if (array_key_exists($this->keyForPrefixedKey($name), $this->_args)) {
-                    $ret = $this->_args[$this->keyForPrefixedKey($name)];
+                    $key = $this->keyForPrefixedKey($name);
+                    if (is_array($this->_args[$key])) {
+                        $ret = new AssociativeArray($this->_args[$key]);
+                    } else {
+                        $ret = $this->_args[$key];
+                    }
                 } else {
                     throw new \Exception('Undefined offset \''.$this->keyForPrefixedKey($name).'\'.');
                 }
