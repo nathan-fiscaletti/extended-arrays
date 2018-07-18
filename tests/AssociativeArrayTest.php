@@ -89,6 +89,26 @@ final class AssociativeArrayTest extends TestCase {
         );
     }
 
+    public function testGetArrayReturnedAsAssociativeArray() {
+        $assoc = new AssocArr([
+            'test' => [
+                'name'
+            ]
+        ]);
+
+        $this->assertInstanceOf(AssocArr::class, $assoc->test);
+    }
+
+    public function testCallArrayReturnedAsAssociativeArray() {
+        $assoc = new AssocArr([
+            'test' => [
+                'name'
+            ]
+        ]);
+
+        $this->assertInstanceOf(AssocArr::class, $assoc->test());
+    }
+
     public function testFunctionCallOnNonExistantPropertyResultsInException() {
         $assoc = new AssocArr();
 

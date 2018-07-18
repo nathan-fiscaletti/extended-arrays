@@ -52,7 +52,11 @@ class AssociativeArray implements \ArrayAccess
     public function __get($key)
     {
         if (array_key_exists($key, $this->_args)) {
-            return $this->_args[$key];
+            if (is_array($this->_args[$key])) {
+                return new self($this->_args[$key]);
+            } else {
+                return $this->_args[$key];
+            }
         } else {
             throw new \Exception('Undefined property \''.$key.'\'.');
         }
@@ -86,7 +90,11 @@ class AssociativeArray implements \ArrayAccess
 
         if (count($arguments) < 1) {
             if (array_key_exists($name, $this->_args)) {
-                $ret = $this->_args[$name];
+                if (is_array($this->_args[$name])) {
+                    $ret = new self($this->_args[$name]);
+                } else {
+                    $ret = $this->_args[$name];
+                }
             } else {
                 throw new \Exception('Call to undefined function \''.$name.'\'.');
             }
