@@ -53,7 +53,7 @@ class AssociativeArray implements \ArrayAccess
     {
         if (array_key_exists($key, $this->_args)) {
             if (is_array($this->_args[$key])) {
-                return new AssociativeArray($this->_args[$key]);
+                return new self($this->_args[$key]);
             } else {
                 return $this->_args[$key];
             }
@@ -91,7 +91,7 @@ class AssociativeArray implements \ArrayAccess
         if (count($arguments) < 1) {
             if (array_key_exists($name, $this->_args)) {
                 if (is_array($this->_args[$name])) {
-                    $ret = new AssociativeArray($this->_args[$name]);
+                    $ret = new self($this->_args[$name]);
                 } else {
                     $ret = $this->_args[$name];
                 }
