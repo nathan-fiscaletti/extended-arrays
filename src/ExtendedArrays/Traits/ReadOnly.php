@@ -2,6 +2,8 @@
 
 namespace ExtendedArrays\Traits;
 
+use ExtendedArrays\AssociativeArray;
+
 /**
  * This trait can be only be applied to associative arrays.
  */
@@ -78,7 +80,11 @@ trait ReadOnly
 
         if (count($arguments) < 1) {
             if (array_key_exists($name, $this->_args)) {
-                $ret = $this->_args[$name];
+                if (is_array($this->_args[$name])) {
+                    $ret = new AssociativeArray($this->_args[$name]);
+                } else {
+                    $ret = $this->_args[$name];
+                }
             } else {
                 throw new \Exception('Call to undefined function \''.$name.'\'.');
             }

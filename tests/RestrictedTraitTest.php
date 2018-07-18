@@ -28,4 +28,44 @@ final class RestrictedTraitTest extends TestCase {
             use Restricted;
         };
     }
+
+    public function testCallArrayReturnedAsAssociativeArray()
+    {
+        $obj = new class extends AssocArr {
+            use Restricted;
+
+            protected $fillable = ['test'];
+
+            function __construct()
+            {
+                parent::__construct([
+                    'test' => [
+                        'test'
+                    ]
+                ]);
+            }
+        };
+
+        $this->assertInstanceOf(AssocArr::class, $obj->test());
+    }
+
+    public function testGetArrayReturnedAsAssociativeArray()
+    {
+        $obj = new class extends AssocArr {
+            use Restricted;
+
+            protected $fillable = ['test'];
+
+            function __construct()
+            {
+                parent::__construct([
+                    'test' => [
+                        'test'
+                    ]
+                ]);
+            }
+        };
+
+        $this->assertInstanceOf(AssocArr::class, $obj->test);
+    }
 }
