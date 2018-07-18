@@ -3,6 +3,7 @@
 namespace ExtendedArrays\Tests;
 
 use ExtendedArrays\IndexedArray as IdxArr;
+use ExtendedArrays\AssociativeArray as AssocArr;
 
 use PHPUnit\Framework\TestCase;
 
@@ -86,6 +87,26 @@ final class IndexedArrayTest extends TestCase {
             'nathan',
             $arr->_0()
         );   
+    }
+
+    public function testGetArrayReturnedAsAssociativeArray() {
+        $assoc = new IdxArr([
+            [
+                'name'
+            ]
+        ]);
+
+        $this->assertInstanceOf(AssocArr::class, $assoc->_0());
+    }
+
+    public function testCallArrayReturnedAsAssociativeArray() {
+        $assoc = new IdxArr([
+            [
+                'name'
+            ]
+        ]);
+
+        $this->assertInstanceOf(AssocArr::class, $assoc->_0);
     }
 
     public function testGetWithFunctionResultsInUndefinedIndex() {

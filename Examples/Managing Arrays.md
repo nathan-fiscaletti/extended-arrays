@@ -50,6 +50,22 @@ However, there are other ways you can construct them that allows you to have mor
 
 #### Accessing Array Elements
 
+> Note: When accessing a sub array element that is an array, it will always be returned as an AssociativeArray.
+
+**Example**
+
+```php
+
+$test = new IndexedArray([
+    [
+        'test'
+    ]
+]);
+
+$test->_0; // This will return an instance of Associative Array.
+
+```
+
 There are three ways in which you can access array elements of Extended Array arrays.
 
 ##### 1. ArrayAccess
