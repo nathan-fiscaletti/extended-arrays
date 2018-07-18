@@ -2,6 +2,8 @@
 
 namespace ExtendedArrays\Traits;
 
+use ExtendedArrays\AssociativeArray;
+
 /**
  * This trait can only be applied to AssociativeArray.
  */
@@ -92,7 +94,13 @@ trait Restricted
      */
     public function offsetGet($offset)
     {
-        return isset($this->_args[$offset]) ? $this->_args[$offset] : null;
+        return isset($this->_args[$offset])
+            ? (
+                (is_array($this->_args[$offset]))
+                    ? new AssociativeArray($this->_args[$offset])
+                    : $this->_args[$offset]
+            )
+            : null;
     }
 
     /**
@@ -107,7 +115,11 @@ trait Restricted
     public function __get($key)
     {
         if ($this->_isFillable($key)) {
-            return $this->_args[$key];
+            if (is_array($this->_args[$key])) {
+                return new AssociativeArray($this->_args[$key]);
+            } else {
+                return $this->_args[$key];
+            }
         } else {
             throw new \Exception('Undefined property \''.$key.'\'.');
         }
@@ -145,7 +157,11 @@ trait Restricted
         $ret = $this;
         if ($this->_isFillable($name)) {
             if (count($arguments) < 1) {
-                $ret = $this->_args[$name];
+                if (is_array($this->_args[$name])) {
+                    $ret = new AssociativeArray($this->_args[$name]);
+                } else {
+                    $ret = $this->_args[$name];
+                }
             } else {
                 $this->_args[$name] = $arguments[0];
             }

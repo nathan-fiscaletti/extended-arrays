@@ -2,6 +2,8 @@
 
 namespace ExtendedArrays\Traits;
 
+use ExtendedArrays\AssociativeArray;
+
 /**
  * This class is used as a base for the AssociativeArray and IndexedArray.
  */
@@ -45,7 +47,12 @@ trait BaseArray
      */
     public function offsetGet($offset)
     {
-        return isset($this->_args[$offset]) ? $this->_args[$offset] : null;
+        return isset($this->_args[$offset])
+            ? (
+                (is_array($this->_args[$offset]))
+                    ? new AssociativeArray($this->_args[$offset])
+                    : $this->_args[$offset]
+            ) : null;
     }
 
     /**
