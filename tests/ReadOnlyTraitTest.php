@@ -45,7 +45,7 @@ final class ReadOnlyTraitTest extends TestCase {
 		$this->expectException(\Exception::class);
         $this->expectExceptionMessage('Cannot modify a read only array.');
 
-		$readOnly->name('test');	
+		$readOnly->name('test');
 	}
 
 	public function testReadOnlyThrowsExceptionOnArraySet()
@@ -58,7 +58,7 @@ final class ReadOnlyTraitTest extends TestCase {
 		$this->expectException(\Exception::class);
         $this->expectExceptionMessage('Cannot modify a read only array.');
 
-		$readOnly['name'] = 'test';	
+		$readOnly['name'] = 'test';
 	}
 
 	public function testReadOnlyUnsetThrowsException()
@@ -70,8 +70,8 @@ final class ReadOnlyTraitTest extends TestCase {
 
 		$this->expectException(\Exception::class);
         $this->expectExceptionMessage('Cannot modify a read only array.');
-		
-		unset($readOnly['name']);	
+
+		unset($readOnly['name']);
 	}
 
 	public function testReadOnlyThrowsExceptionOnUndefinedFunctionCall()

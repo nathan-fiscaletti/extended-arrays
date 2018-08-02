@@ -37,7 +37,7 @@ final class IndexedArrayTest extends TestCase {
         $this->assertEquals(
             'nathan',
             $arr[0]
-        );   
+        );
     }
 
     public function testCanSetWithFunctions() {
@@ -47,7 +47,7 @@ final class IndexedArrayTest extends TestCase {
         $this->assertEquals(
             'nathan',
             $arr[0]
-        );   
+        );
     }
 
     public function testCanGetWithArrayAccess() {
@@ -60,7 +60,7 @@ final class IndexedArrayTest extends TestCase {
         $this->assertEquals(
             'nathan',
             $arr[0]
-        );   
+        );
     }
 
     public function testCanGetWithProperties() {
@@ -73,7 +73,7 @@ final class IndexedArrayTest extends TestCase {
         $this->assertEquals(
             'nathan',
             $arr->_0
-        );   
+        );
     }
 
     public function testCanGetWithFunctions() {
@@ -86,7 +86,7 @@ final class IndexedArrayTest extends TestCase {
         $this->assertEquals(
             'nathan',
             $arr->_0()
-        );   
+        );
     }
 
     public function testGetArrayReturnedAsAssociativeArray() {
@@ -144,5 +144,29 @@ final class IndexedArrayTest extends TestCase {
         $arr['name'] = 'nathan';
     }
 
+    public function testOffsetSetOnNullOffset() {
+        $arr = new IdxArr();
+        $arr->offsetSet(null, ['value']);
+        $assocArr = $arr->offsetGet(0);
+
+        $this->assertInstanceOf(AssocArr::class, $assocArr);
+        $this->assertSame('value', $assocArr[0]);
+    }
+
+    public function testSetOnUndefinedProperty() {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Undefined property \'name\'');
+
+        $arr = new IdxArr();
+        $arr->name = 'nathan';
+    }
+
+    public function testCallOnUndefinedFunction() {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Call to undefined function \'undefinedFunction\'');
+
+        $arr = new IdxArr();
+        $arr->undefinedFunction();
+    }
 
 }
