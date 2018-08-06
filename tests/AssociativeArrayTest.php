@@ -7,7 +7,7 @@ use ExtendedArrays\AssociativeArray as AssocArr;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \ExtendedArrays\AssociaitiveArray
+ * @covers \ExtendedArrays\AssociativeArray
  */
 final class AssociativeArrayTest extends TestCase {
     public function testCanBeCreatedFromValidArray() {
@@ -126,5 +126,13 @@ final class AssociativeArrayTest extends TestCase {
 
         $something = $assoc->test;
     }
-    
+
+    public function testOffsetSetOnNullOffset() {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Must supply key to modify arguments in an AssociativeArray.');
+
+        $arr = new AssocArr();
+        $arr->offsetSet(null, 'value');
+    }
+
 }
