@@ -7,6 +7,7 @@
 > 
 > [![StyleCI](https://styleci.io/repos/115140407/shield?style=flat)](https://styleci.io/repos/115140407)
 > [![TravisCI](https://travis-ci.org/nathan-fiscaletti/extended-arrays.svg?branch=master)](https://travis-ci.org/nathan-fiscaletti/extended-arrays)
+> [![Coverage Status](https://coveralls.io/repos/github/nathan-fiscaletti/extended-arrays/badge.svg?branch=master)](https://coveralls.io/github/nathan-fiscaletti/extended-arrays?branch=master)
 > [![Latest Stable Version](https://poser.pugx.org/nafisc/extended-arrays/v/stable?format=flat)](https://github.com/nathan-fiscaletti/extended-arrays/releases)
 > [![Total Downloads](https://poser.pugx.org/nafisc/extended-arrays/downloads?format=flat)](https://packagist.org/packages/nafisc/extended-arrays)
 > [![Latest Unstable Version](https://poser.pugx.org/nafisc/extended-arrays/v/unstable?format=flat)](https://packagist.org/packages/nafisc/extended-arrays)
